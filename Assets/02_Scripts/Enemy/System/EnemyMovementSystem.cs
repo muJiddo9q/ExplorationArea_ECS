@@ -77,6 +77,11 @@ public partial struct EnemyMovementJob : IJobEntity
         {
             return;
         }
+        // 플레이어와 거리를 계산해 정지거리 이내이면 이동하지 않음
+        if (distanceToplayerSq <= enemyComponent.stopDistance * enemyComponent.stopDistance)
+        {
+            return;
+        }
 
         // Player 방향의 벡터 계산
         var direction = math.normalize(playerPosition - enemyTransform.Position);

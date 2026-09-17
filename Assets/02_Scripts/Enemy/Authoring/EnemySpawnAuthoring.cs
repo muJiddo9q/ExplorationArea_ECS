@@ -7,7 +7,9 @@ class EnemySpawnAuthoring : MonoBehaviour
     public int enemyCount = 30000;
     public float minSpeed = 0.2f;
     public float maxSpeed = 1.0f;
+    public float minSpawnRadius = 10f;
     public float spawnRadius = 50f;
+    public float stopDistance = 2.0f;
     public uint randomSeed = 12345;
 }
 
@@ -22,8 +24,11 @@ class EnemySpawnAuthoringBaker : Baker<EnemySpawnAuthoring>
            numEnemies = authoring.enemyCount,
            minSpeed = authoring.minSpeed,
            maxSpeed = authoring.maxSpeed,
+           minSpawnRadius = authoring.minSpawnRadius,
            spawnRadius = authoring.spawnRadius,
-           randomSeed = authoring.randomSeed 
+           stopDistance = authoring.stopDistance,
+           randomSeed = authoring.randomSeed
+
         });
 
         AddComponent<EnemySpawnTag>(entity);
